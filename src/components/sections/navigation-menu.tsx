@@ -2,16 +2,26 @@
 
 import React from 'react';
 
-const NavigationMenu = () => {
+interface NavigationMenuProps {
+  onCommandExecute?: (command: string) => void;
+}
+
+const NavigationMenu = ({ onCommandExecute }: NavigationMenuProps = {}) => {
   const commands = [
     'help', 'about', 'projects', 'skills', 'experience', 'contact',
     'education', 'certifications', 'leadership', 'sudo', 'clear'
   ];
 
-  // In a real application, this would likely dispatch a command to a terminal context
   const handleCommandClick = (command: string) => {
-    // This is a placeholder for the actual command logic
-    console.log(`Executing command: ${command}`);
+    // Trigger command execution in terminal
+    if (onCommandExecute) {
+      onCommandExecute(command);
+    } else {
+      // Fallback: dispatch custom event that terminal can listen to
+      window.dispatchEvent(new CustomEvent('terminal-command', { 
+        detail: { command } 
+      }));
+    }
   };
 
   return (
@@ -20,7 +30,7 @@ const NavigationMenu = () => {
         <React.Fragment key={command}>
           <button
             onClick={() => handleCommandClick(command)}
-            className="hover:text-[var(--color-cyan-accent)] focus:text-[var(--color-cyan-accent)] focus:outline-none transition-colors"
+            className="hover:text-cyan-400 focus:text-cyan-400 focus:outline-none transition-colors cursor-pointer active:scale-95"
           >
             {command}
           </button>
