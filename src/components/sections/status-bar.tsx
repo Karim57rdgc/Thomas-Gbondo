@@ -28,7 +28,7 @@ const StatusBar = () => {
 
   return (
     <footer className="p-2 border-t border-primary bg-background text-primary font-mono text-xs flex justify-between items-center">
-      <span>gatere@portfolio:~$</span>
+      <span>thomas@portfolio:~$</span>
       <span>{currentTime}</span>
     </footer>
   );
