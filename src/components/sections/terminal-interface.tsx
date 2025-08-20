@@ -2,9 +2,9 @@ import React from 'react';
 
 const TerminalInterface = () => {
     // The welcome message text with deliberate newlines to be rendered by `whitespace-pre-wrap`.
-    const welcomeMessage = `Hi, I'm Mark Gatere, a Software & AI Engineer.
+    const welcomeMessage = `Hi, I'm Thomas Hopanda Gbondo — a Full-Stack & AI Enthusiast, Trader, and Real Estate Agent.
 
-Welcome to my interactive 'AI powered' portfolio terminal!
+Welcome to my interactive portfolio terminal!
 Type 'help' to see available commands.`;
 
     return (
@@ -14,7 +14,7 @@ Type 'help' to see available commands.`;
                 <div className="mb-4">
                     {/* The executed "welcome" command */}
                     <div className="command-line flex items-center">
-                        <span className="text-blue-400 mr-2">gatere@portfolio:~$</span>
+                        <span className="text-blue-400 mr-2">thomas@portfolio:~$</span>
                         <span>welcome</span>
                     </div>
                     {/* The output of the "welcome" command */}
@@ -26,7 +26,7 @@ Type 'help' to see available commands.`;
 
             {/* The current, active command prompt */}
             <div className="command-input flex items-center">
-                <span className="text-blue-400 mr-2">gatere@portfolio:~$</span>
+                <span className="text-blue-400 mr-2">thomas@portfolio:~$</span>
                 <div className="fake-input flex-1 relative flex items-center h-4">
                     <span className="text-green-500"></span>
                     {/* Blinking cursor simulation */}
