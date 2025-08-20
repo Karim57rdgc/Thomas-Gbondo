@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, MouseEvent } from 'react';
+import Image from 'next/image';
 
 const InteractiveCard = () => {
     const cardContainerRef = useRef<HTMLDivElement>(null);
@@ -12,7 +13,7 @@ const InteractiveCard = () => {
         const { left, top, width, height } = cardContainerRef.current.getBoundingClientRect();
         const x = (e.clientX - left - width / 2) / (width / 2);
         const y = (e.clientY - top - height / 2) / (height / 2);
-        
+
         const rotateY = x * 15;
         const rotateX = -y * 15;
 
@@ -46,10 +47,14 @@ const InteractiveCard = () => {
             style={{ transform: 'translateZ(20px)' }}
           >
               <div className="flex flex-col items-center gap-4">
-                <div className="w-36 h-36 bg-gray-500/30 rounded-full border-2 border-gray-400/50 flex items-center justify-center overflow-hidden">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-24 h-24 text-gray-300/50" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                  </svg>
+                <div className="w-36 h-36 rounded-full border-2 border-gray-400/50 flex items-center justify-center overflow-hidden">
+                  <Image 
+                    src="/QAP335I5T7SttGOtxW9Dag.jpg" 
+                    alt="Profile" 
+                    width={144} 
+                    height={144} 
+                    className="object-cover w-36 h-36 rounded-full"
+                  />
                 </div>
                 <div className="w-full flex justify-between items-center mt-4">
                   <div className="w-8 h-8 rounded-md bg-white/20"></div>
@@ -58,7 +63,7 @@ const InteractiveCard = () => {
               </div>
           </div>
         </div>
-        
+
         <div className="absolute bottom-2 right-2 text-xs text-green-500 font-mono bg-black bg-opacity-70 p-1 rounded z-20">
           [Interactive 3D Card]
         </div>
